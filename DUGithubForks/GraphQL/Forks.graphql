@@ -1,0 +1,66 @@
+query GetRepo($repo_owner: String!, $repo_name: String!) {
+    repository(owner: $repo_owner, name: $repo_name) {
+        ...RepoDetails
+        forks(first: 0, orderBy: {field: NAME, direction: ASC}) {
+            ...ForkDetails
+        }
+    }
+}
+
+query RepoFirstForks($repo_owner: String!, $repo_name: String!, $forks_count: Int!) {
+    repository(owner: $repo_owner, name: $repo_name) {
+        ...RepoDetails
+        forks(first: $forks_count, orderBy: {field: NAME, direction: ASC}) {
+            ...RepoConnectionDetails
+            nodes {
+                ...RepoDetails
+                forks(first: 0, orderBy: {field: NAME, direction: ASC}) {
+                    ...ForkDetails
+                }
+            }
+        }
+    }
+}
+
+query RepoNextForks($repo_owner: String!, $repo_name: String!, $forks_count: Int!, $end_cursor: String!) {
+    repository(owner: $repo_owner, name: $repo_name) {
+        ...RepoDetails
+        forks(first: $forks_count, orderBy: {field: NAME, direction: ASC}, after: $end_cursor) {
+            ...RepoConnectionDetails
+            nodes {
+                ...RepoDetails
+                forks(first: 0, orderBy: {field: NAME, direction: ASC}) {
+                    ...ForkDetails
+                }
+            }
+        }
+    }
+}
+
+fragment RepoConnectionDetails on RepositoryConnection {
+    ...ForkDetails
+    nodes {
+        ...RepoDetails
+    }
+}
+
+fragment RepoDetails on Repository {
+    id
+    name
+    owner {
+        id
+        login
+        avatarUrl
+    }
+}
+
+fragment ForkDetails on RepositoryConnection {
+    totalCount
+    pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
+    }
+}
+
