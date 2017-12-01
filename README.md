@@ -1,4 +1,4 @@
 # GithubForks
 Test app with GraphQL Github API
 
-Run "pod update".
+Run "pod update" to load pods.
