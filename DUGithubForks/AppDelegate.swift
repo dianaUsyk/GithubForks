@@ -8,7 +8,7 @@
 
 import UIKit
 
-let personalGithubAccessToken = "YOUR_TOKEN"
+let personalGithubAccessToken = //"YOUR_TOKEN"
 
 @UIApplicationMain
 
