@@ -10,7 +10,7 @@ import Foundation
 import Apollo
 
 let graphlQLEndpointURL = "https://api.github.com/graphql"
-let personalAccessToken = "c5d34eafa8589fd656e98c62a3123217be108878"
+let personalAccessToken = "8f633f747ab989ded9cda7ffd74f047118fae157"
 
 let apollo: ApolloClient = {
     let configuration = URLSessionConfiguration.default
