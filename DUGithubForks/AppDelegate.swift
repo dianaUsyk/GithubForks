@@ -8,8 +8,6 @@
 
 import UIKit
 
-let personalGithubAccessToken = //"YOUR_TOKEN"
-
 @UIApplicationMain
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
