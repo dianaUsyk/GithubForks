@@ -9,19 +9,14 @@
 import Foundation
 import Apollo
 
-let code = "A"
-let personalGithubAccessToken = "032b6025aee8d78d98d30af11aca96ab7ec6604dA"
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// Uncomment next row
+// let personalGithubAccessToken = "b80ad0e57107b2fb4201a28c0e3c3ad1fb232862"
 let graphlQLEndpointURL = "https://api.github.com/graphql"
 
 let apollo: ApolloClient = {
     let configuration = URLSessionConfiguration.default
-    configuration.httpAdditionalHeaders = ["Authorization": "Bearer \(encodedToken)"]
+    configuration.httpAdditionalHeaders = ["Authorization": "Bearer \(personalGithubAccessToken)"]
     let url = URL(string: graphlQLEndpointURL)!
     return ApolloClient(networkTransport: HTTPNetworkTransport(url: url, configuration: configuration))
-}()
-
-let encodedToken: String = {
-    let endIndex = personalGithubAccessToken.index(personalGithubAccessToken.endIndex, offsetBy: -code.count)
-    let encodedTokenSubstring = personalGithubAccessToken[..<endIndex]
-    return String(encodedTokenSubstring)
 }()
