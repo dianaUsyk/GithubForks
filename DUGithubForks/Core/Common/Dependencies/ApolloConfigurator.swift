@@ -12,12 +12,14 @@ import Apollo
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // Uncomment next row
 
-let personalGithubAccessToken = //Uncomment "be855616c79aecb1774e30ab5d256d3d2b86c7f0"
+let personalGithubAccessToken = "d918 ee5a bd78 7fe7 e9fe 6a79 872b ab2ab 41f6 e83"
 let graphlQLEndpointURL = "https://api.github.com/graphql"
 
 let apollo: ApolloClient = {
+    
     let configuration = URLSessionConfiguration.default
-    configuration.httpAdditionalHeaders = ["Authorization": "Bearer \(personalGithubAccessToken)"]
+    let decoded = personalGithubAccessToken.replacingOccurrences(of: " ", with: "", options: .literal, range: nil)
+    configuration.httpAdditionalHeaders = ["Authorization": "Bearer \(decoded)"]
     let url = URL(string: graphlQLEndpointURL)!
     return ApolloClient(networkTransport: HTTPNetworkTransport(url: url, configuration: configuration))
 }()
