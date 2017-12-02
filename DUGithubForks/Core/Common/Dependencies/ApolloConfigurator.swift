@@ -9,9 +9,6 @@
 import Foundation
 import Apollo
 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// Uncomment next row
-
 let personalGithubAccessToken = "d918 ee5a bd78 7fe7 e9fe 6a79 872b ab2ab 41f6 e83"
 let graphlQLEndpointURL = "https://api.github.com/graphql"
 
