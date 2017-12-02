@@ -11,7 +11,8 @@ import Apollo
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // Uncomment next row
-// let personalGithubAccessToken = "b80ad0e57107b2fb4201a28c0e3c3ad1fb232862"
+
+let personalGithubAccessToken = "Your_token"
 let graphlQLEndpointURL = "https://api.github.com/graphql"
 
 let apollo: ApolloClient = {
